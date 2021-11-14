@@ -45,8 +45,8 @@ You should need to do these only the first time.
 
 1. Go to https://developer.spotify.com/dashboard and sign in with your Spotify account.
 2. Click on the 'CREATE AN APP' option and provide an app name and app description as you'd like.
-3. Go to 'EDIT SETTINGS' and fill in the Redirect URIs placeholder with http://localhost:8080/, and click on Save.
-4. Copy the **Client ID** and **Client Secret** and paste it in when you start the script later on.
+3. Go to 'EDIT SETTINGS' and fill in the Redirect URIs placeholder with http://localhost:8080/, click Add, then click on Save.
+4. Copy down your **Client ID** and **Client Secret** (found by clicking Reveal Client Secret). You will need these when you run the script later on.
    - ⚠️ **Please remember to never share your Client Secret with anyone. This could lead to your account getting stolen or irregular Spotify user behavior that could lead to account termination.**
    - **Developers of SpotiByeAds will never ask for your Client Secret.**
 
