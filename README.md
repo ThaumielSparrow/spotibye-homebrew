@@ -1,9 +1,8 @@
-# SpotiByeAds
+# SpotiByeAds (Homebrew Compatability Fork)
  [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
  [![GitHub license](https://img.shields.io/github/license/daspartho/SpotiByeAds.svg)](https://github.com/daspartho/SpotiByeAds/blob/main/LICENSE)
  [![Documentation Status](https://readthedocs.org/projects/spotibyeads/badge/?version=latest)](https://spotibyeads.readthedocs.io/en/latest/?badge=latest)
- [![GitHub stars](https://img.shields.io/github/stars/daspartho/SpotiByeAds.svg?style=social&label=Stars&maxAge=2592000)](https://github.com/daspartho/SpotiByeAds/stargazers/)
- [![GitHub stars](https://img.shields.io/github/forks/daspartho/SpotiByeAds?style=social)](https://github.com/daspartho/SpotiByeAds/network/members)
+[See the Original Project Here](https://github.com/daspartho/SpotiByeAds)
 
 No one likes interruptions! Don't you hate it when you're listening to your favorite jazz track or your EDM playlist and an ad for Old Spice or Pepsi starting playing interrupting your mood? With SpotiByeAds, you can listen ad-free allowing you to concentrating less on those ads and more towards the task at hand!
 
@@ -52,7 +51,7 @@ You should need to do these only the first time.
 
 ⚠️⚠️⚠️
 
-If you are on Linux and installed a **containerized** version of Spotify (e.g via Snap or Flatpack) or any unofficial forms of distribution, please paste the path to the Spotify executable on your computer (or a command that starts up the Spotify app) in the `main.py` script on the line described below:
+If you are on Linux and installed a **containerized** version of Spotify (e.g via Snap or Flatpack) or any unofficial forms of distribution (or have installed Spotify in a location other than the default location chosen by the installer and is not in $PATH), please paste the path to the Spotify executable on your computer (or a command that starts up the Spotify app) in the `main.py` script on the line described below:
 ```python
     PATH = (shutil.which("spotify")  # For any system with spotify on $PATH
             or ("{HOMEDRIVE}{HOMEPATH}\AppData\Roaming\Spotify\Spotify.exe"
@@ -64,31 +63,24 @@ If you are on Linux and installed a **containerized** version of Spotify (e.g vi
 ```
 Please find this part of the script and paste the path/command within the `""` (empty quotes) on the line with the comment `# Custom path ...`.
 
-This is also applicable on any other OS, if the Spotify installation path is different from the usual (and is not included in the $PATH environment variable).
-
 ⚠️⚠️⚠️
 
 # Usage
-1. Open Spotify and start your favourite track.
-2. Run the script from a terminal using `python main.py` in the local repository's directory (or probably by double-cliking on the `main` python script from your file explorer on Windows).
+1. Open Spotify and start a track or playlist.
+2. Run the script from a terminal using `python main.py` in the local repository's directory (or probably by double-clicking on the `main` python script from your file explorer on Windows).
    - If it's the first time running the script, enter your Spotify username and paste in the **Client ID** and **Client Secret** when prompted to enter them.
-4. Congratulations! You can now listen to Spotify with no ads and the peace of mind you deserve 😁.
+4. Script will start running and automatically start skipping ads.
 
 ## Pausing playback, Skipping tracks, Changing playlists.
 
-Due to the way the script works, pausing and playing or manually changing tracks disrupts it's work, such that the next ad that comes up might not be skipped.
-Not, to worry, the script has a way around this...
+Due to the way the script works, pausing and playing or manually changing tracks disrupts its work, such that the next ad that comes up might not be skipped.
 
-When you want to perform any of these actions:
+When you want to perform any of the above actions:
 1. Go to the terminal where in the script is running.
-2. Press `Ctr-C` i.e hold down the `Ctrl` key and tap the `C` key.
+2. Press `Ctrl-C` **once**.
 3. Follow the prompts to perform your desired action.
 
-⚠️**Note**: If you're using **Command Prompt** on windows, please note that it might have some unwanted behaviour with keyboard input that affects this feature. **You are strongly adviced to run the script in _Windows Powershell_**.
-
-# Contributing
-If you want to contribute code, just write a quick pull request and the developers will take a look at it.
-If you want to suggest an idea, just write an issue and the developers will check it out!
+⚠️**Note**: If you're using **Command Prompt** on windows, please note that it might have some unwanted behaviour with keyboard input that affects this feature. **You are strongly advised to run the script in _Windows Powershell_**.
 
 # Building
 
