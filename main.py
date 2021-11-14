@@ -9,7 +9,7 @@ try:
     from pynput.keyboard import Key, Controller
 except ImportError:
     print("DEPENDENCIES NOT INSTALLED!"
-          "\nPlease install the depenencies by running:"
+          "\nInstall the depenencies by running:"
           "\n\t`python -m pip install -r requirements.txt`")
     sys.exit(1)
 
@@ -17,12 +17,11 @@ except ImportError:
 keyboard = Controller()
 
 def closeSpotify():
-    if os.name == "nt":  # windows
+    if os.name == "nt":  # Windows
         os.system("taskkill /f /im spotify.exe")
     elif sys.platform == "darwin":  # Mac OS
-        # Not exactly sure of the process name, so used regex.
         os.system("killall -9 -r [Ss]potify.*")
-    else:  # almost everything else
+    else:  # Everything else. May fail on some linux distros.
         os.system("killall -9 spotify")
 
 def openSpotify(path):
@@ -59,10 +58,10 @@ def main(username, scope, clientID, clientSecret, redirectURI, path):
         spotify = setupSpotifyObject(username, scope, clientID, clientSecret, redirectURI)
     except (OSError, urllib3.exceptions.HTTPError) as e:
         print(f"\nSomething went wrong: {e}\n")
-        print("Please connect to the internet and run the program again.")
+        print("Verify internet connection status. For homebrew Spotify, verify client integrity.")
         return
 
-    print("\nAwesome, that's all I needed. I'm watching for ads now <.<")
+    print("\nDaemon Overwatch beginning. Ads are being skipped silently.")
     restartSpotify(path)
 
     current_track = None
@@ -93,7 +92,7 @@ def main(username, scope, clientID, clientSecret, redirectURI, path):
             if current_track:  # Can either be `None` or JSON data `dict`.
                 if current_track['currently_playing_type'] == 'ad':
                     restartSpotify(path)
-                    print('Ad skipped')
+                    print('Ad detected and skipped.')
                     continue  # get new track info
 
                 if current_track['item']['name'] != last_track:  # Next track
@@ -123,7 +122,7 @@ def main(username, scope, clientID, clientSecret, redirectURI, path):
                                   " or pause the playback on the Spotify app.\n"
                                   "Press ENTER after changing the playlist/track"
                                   " or resuming playback...")
-                            print("Resuming my business of skipping ads ;)")
+                            print("Overwatch resuming.")
                         else:
                             sys.exit(0)
                         continue  # Skip the one-second sleep
@@ -132,7 +131,7 @@ def main(username, scope, clientID, clientSecret, redirectURI, path):
         except KeyboardInterrupt:
             if input("\nExit? (Y/n) ").lower() != 'n':
                 break
-            print("Resuming my business of skipping ads ;)")
+            print("Overwatch resuming.")
 
 
 if __name__ == '__main__':
@@ -167,19 +166,19 @@ if __name__ == '__main__':
                     except TypeError:
                         print("Incorrect password!")
                     except ValueError:
-                        print("Can't load stored credentials, must be corrupted!")
+                        print("Unable to load stored credentials: file is corrupted.")
                         try:
                             os.remove("credentials.bin")
                         except PermissionError:
-                            print("Could not delete 'credentials.bin', "
-                                  "please manually delete it.")
+                            print("Insufficient permissions to delete 'credentials.bin', "
+                                  "delete the file manually to continue.")
                         loaded = False
                         break
                 else:
                     print("Invalid password!")
                 tries += 1
             else:
-                print("3 Wrong Attempts! Exiting...")
+                print("You have made 3 wrong attempts. Exiting...")
                 sys.exit(0)
         elif load == "n":
             print("User didn't want to load from save.")
@@ -195,7 +194,7 @@ if __name__ == '__main__':
             try:
                 os.remove("credentials.json")
             except PermissionError:
-                print("Could not delete 'credentials.json', please manually delete it.")
+                print("Insufficient permissions to delete 'credentials.json', manually delete it to continue.")
 
             save = "y"
             print("\nNOTICE: Old credentials store found!\n"
@@ -205,12 +204,12 @@ if __name__ == '__main__':
                   "Please your new password below to encrypt your existing "
                   "credentials.\n")
         else:
-            username = input("What's your Spotify username? ")
-            client_id = input("Great, now what's the ClientID you're using? ")
-            client_secret = input("Beautiful, now how about the Client Secret? ")
+            username = input("What is your Spotify username? ")
+            client_id = input("What is the ClientID you're using? (If you do not know what this means, read the README) ")
+            client_secret = input("What is your Client Secret? ")
 
-            save = input("Awesome, now would you like to save your credentials"
-                         " for future sessions? (y/N) "
+            save = input("Would you like to save your credentials"
+                         " for future sessions? (Will be stored in encrypted format) (y/N) "
                         ).lower()
         
         if save == "y":
@@ -223,7 +222,7 @@ if __name__ == '__main__':
                 store_credentials(password, username, client_id, client_secret)
                 print("Credentials saved.")
             except PermissionError:
-                print("Credentials could not be stored due to lack of permission\n"
+                print("Credentials could not be stored due to lack of permissions\n"
                       "The script will continue anyways...")
         elif save == "n":
             print("Not saving settings.")

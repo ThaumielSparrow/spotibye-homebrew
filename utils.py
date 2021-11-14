@@ -1,4 +1,4 @@
-""" Utilility functions for the main script """
+""" Utility functions for the main script """
 
 import sys
 from random import randint
@@ -13,13 +13,13 @@ def get_password():
     """ Requests for and reads password invisibly """
 
     pwd = getpass("Enter your password below. It is used to protect your credentials.\n"
-                  "The password must have a minimum length of 8 characters "
+                  "The password must have a minimum length of 6 characters "
                   "and can only contain alphanumeric characters and symbols.\n"
-                  "Enter password (will be hidden): ")
+                  "Enter password (input is hidden): ")
 
     tries = 0  # Limit number of invalid attempts
     while True:
-        if len(pwd) >= 8 and pwd.isascii() and pwd.isprintable() and ' ' not in pwd:
+        if len(pwd) >= 6 and pwd.isascii() and pwd.isprintable() and ' ' not in pwd:
             if getpass("Confirm password: ") == pwd:
                 return pwd
             else:
