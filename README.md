@@ -1,7 +1,8 @@
-# SpotiByeAds (Homebrew Compatability Fork)
+# SpotiByeAds (Homebrew Compatibility Fork)
  [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
  [![GitHub license](https://img.shields.io/github/license/daspartho/SpotiByeAds.svg)](https://github.com/daspartho/SpotiByeAds/blob/main/LICENSE)
  [![Documentation Status](https://readthedocs.org/projects/spotibyeads/badge/?version=latest)](https://spotibyeads.readthedocs.io/en/latest/?badge=latest)
+ 
 [See the Original Project Here](https://github.com/daspartho/SpotiByeAds)
 
 No one likes interruptions! Don't you hate it when you're listening to your favorite jazz track or your EDM playlist and an ad for Old Spice or Pepsi starting playing interrupting your mood? With SpotiByeAds, you can listen ad-free allowing you to concentrating less on those ads and more towards the task at hand!
