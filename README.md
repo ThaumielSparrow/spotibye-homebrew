@@ -27,7 +27,7 @@ When an ad enters your spotify queue, SBA will detect the current track as an ad
 
 - First, clone the repository.
 ```
-git clone https://github.com/daspartho/SpotiByeAds.git 
+git clone https://github.com/ThaumielSparrow/spotibye-homebrew
 ```
 - Then, change your current directory into the SpotiByeAds repository.
 ```
