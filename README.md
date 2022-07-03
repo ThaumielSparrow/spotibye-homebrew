@@ -31,7 +31,7 @@ git clone https://github.com/ThaumielSparrow/spotibye-homebrew
 ```
 - Then, change your current directory into the SpotiByeAds repository.
 ```
-cd SpotiByeAds
+cd spotibye-homebrew
 ```
 - Finally, install the requirements in the requirements file.
 ```
